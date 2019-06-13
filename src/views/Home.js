@@ -1,6 +1,6 @@
 //@flow
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
 import {
   StyleSheet,
   View,
@@ -8,15 +8,19 @@ import {
   Text,
   Modal,
   TouchableOpacity,
-  Image
-} from 'react-native';
-import MapView from 'react-native-maps';
+  Image,
+  Picker,
+  TextInput,
+  KeyboardAvoidingView
+} from "react-native";
+import MapView from "react-native-maps";
 
-import Tubular from '../components/details/Tubular';
-import Hollow from '../components/details/Hollow';
-import TubularPin from '../imgs/tubular-pin.png';
+import Tubular from "../components/details/Tubular";
+import Hollow from "../components/details/Hollow";
+import TubularPin from "../imgs/tubular-pin.png";
+import HollowPin from "../imgs/hollow-pin.png";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 class HomeScreen extends PureComponent {
   state = {
@@ -63,7 +67,7 @@ class HomeScreen extends PureComponent {
           style={styles.mapView}
           showsPointsOfInterest={false}
           onPress={e => {
-            console.log('hey', e.nativeEvent.coordinate);
+            console.log("hey", e.nativeEvent.coordinate);
             this.handleAdd();
           }}
         >
@@ -80,38 +84,70 @@ class HomeScreen extends PureComponent {
                   longitude: parseFloat(item.longitude_decimal)
                 }}
               >
-                {/* <Image
-                  source={TubularPin}
-                  style={{ width: 32, resizeMode: 'contain' }}
-                /> */}
+                {item.natureza.contains("tubular") ? (
+                  <Image
+                    source={TubularPin}
+                    style={{ width: 32, height: 32, resizeMode: "cover" }}
+                  />
+                ) : (
+                  <Image
+                    source={HollowPin}
+                    style={{ width: 32, height: 32, resizeMode: "cover" }}
+                  />
+                )}
               </MapView.Marker>
             ))}
         </MapView>
 
         {showButton && (
-          <Modal style={{ backgroundColor: 'yellow', flex: 1 }}>
+          <Modal
+            style={{
+              backgroundColor: "yellow",
+              flex: 1,
+              margin: 10,
+              position: "absolute"
+            }}
+          >
             <View style={{ flex: 1 }}>
               <View
                 style={{
-                  backgroundColor: 'green',
-                  width: '100%',
-                  flex: 1
+                  width: "100%",
+                  flex: 1,
+                  padding: 10
                 }}
               >
-                <Text>f</Text>
+                <Text>Tipo do poço</Text>
+                <Picker
+                  style={{ height: 50, width: "100%", borderWidth: 0.5 }}
+                  onValueChange={(itemValue, itemIndex) => {}}
+                >
+                  <Picker.Item label="Tubular" value="1" />
+                  <Picker.Item label="Escavado" value="2" />
+                </Picker>
+                <TextInput
+                  style={{
+                    height: 40,
+                    borderColor: "gray",
+                    borderWidth: 1,
+                    borderRadius: 5
+                  }}
+                  onChangeText={text => this.setState({ text })}
+                  value=""
+                  placeholder="Digite x"
+                />
               </View>
               <TouchableOpacity
                 style={{
-                  backgroundColor: 'blue',
-                  width: '95%',
+                  backgroundColor: "blue",
+                  width: "95%",
                   bottom: 10,
                   left: 10,
                   right: 10,
                   borderRadius: 30,
-                  position: 'absolute',
+                  position: "absolute",
                   height: 60,
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  alignItems: "center",
+                  justifyContent: "center"
                 }}
                 onPress={() => this.handleAdd()}
               >
@@ -121,8 +157,8 @@ class HomeScreen extends PureComponent {
           </Modal>
         )}
         {showDetails && (
-          <Modal style={{ backgroundColor: 'yellow', flex: 1 }}>
-            {!place.natureza.includes('tubular') ? (
+          <Modal style={{ backgroundColor: "yellow", flex: 1 }}>
+            {!place.natureza.includes("tubular") ? (
               <Hollow item={place} handleModal={() => this.handleModal()} />
             ) : (
               <Tubular item={place} handleModal={() => this.handleModal()} />
@@ -136,16 +172,16 @@ class HomeScreen extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+    justifyContent: "flex-end",
+    alignItems: "center"
   },
   mapView: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     right: 0,
     bottom: 0,
@@ -156,7 +192,7 @@ const styles = StyleSheet.create({
     width: width - 40,
     maxHeight: 100,
     borderRadius: 4,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     marginHorizontal: 20
   }
 });
