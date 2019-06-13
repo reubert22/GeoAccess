@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\desenvolvimento\\GeoAccess\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "/Users/Reubert/Documents/workspace/Personal/GeoAccess/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Reubert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\019dfb0b71af24516cb34f44b1689169\\res\\values-v24\\values-v24.xml",
+                    "source": "/Users/Reubert/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a13257e065a35c1af8c0564beddb0e0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Reubert\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\054807ec850d3f5a483adb643506c46a\\res\\values-v24\\values-v24.xml",
+                    "source": "/Users/Reubert/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/537a39d5fe3f3ca08074f788aba32d0d/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

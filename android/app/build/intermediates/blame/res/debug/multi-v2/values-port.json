@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\desenvolvimento\\GeoAccess\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "/Users/Reubert/Documents/workspace/Personal/GeoAccess/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Reubert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\019dfb0b71af24516cb34f44b1689169\\res\\values-port\\values-port.xml",
+                    "source": "/Users/Reubert/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a13257e065a35c1af8c0564beddb0e0/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

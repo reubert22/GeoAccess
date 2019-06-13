@@ -1,4 +1,4 @@
-#Wed Jun 12 00:55:55 BRT 2019
-base.0=C\:\\desenvolvimento\\GeoAccess\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Thu Jun 13 01:18:21 BRT 2019
+base.0=/Users/Reubert/Documents/workspace/Personal/GeoAccess/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
