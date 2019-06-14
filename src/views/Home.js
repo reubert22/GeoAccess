@@ -19,6 +19,7 @@ import Tubular from "../components/details/Tubular";
 import Hollow from "../components/details/Hollow";
 import TubularPin from "../imgs/tubular-pin.png";
 import HollowPin from "../imgs/hollow-pin.png";
+import NewPoint from "../components/NewPoint";
 
 const { width } = Dimensions.get("window");
 
@@ -26,7 +27,8 @@ class HomeScreen extends PureComponent {
   state = {
     showDetails: false,
     place: {},
-    showButton: false
+    showButton: false,
+    option: "1"
   };
 
   handleModal = (place = {}) => {
@@ -84,7 +86,7 @@ class HomeScreen extends PureComponent {
                   longitude: parseFloat(item.longitude_decimal)
                 }}
               >
-                {item.natureza.contains("tubular") ? (
+                {item.natureza.includes("tubular") ? (
                   <Image
                     source={TubularPin}
                     style={{ width: 32, height: 32, resizeMode: "cover" }}
@@ -99,63 +101,7 @@ class HomeScreen extends PureComponent {
             ))}
         </MapView>
 
-        {showButton && (
-          <Modal
-            style={{
-              backgroundColor: "yellow",
-              flex: 1,
-              margin: 10,
-              position: "absolute"
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <View
-                style={{
-                  width: "100%",
-                  flex: 1,
-                  padding: 10
-                }}
-              >
-                <Text>Tipo do poço</Text>
-                <Picker
-                  style={{ height: 50, width: "100%", borderWidth: 0.5 }}
-                  onValueChange={(itemValue, itemIndex) => {}}
-                >
-                  <Picker.Item label="Tubular" value="1" />
-                  <Picker.Item label="Escavado" value="2" />
-                </Picker>
-                <TextInput
-                  style={{
-                    height: 40,
-                    borderColor: "gray",
-                    borderWidth: 1,
-                    borderRadius: 5
-                  }}
-                  onChangeText={text => this.setState({ text })}
-                  value=""
-                  placeholder="Digite x"
-                />
-              </View>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: "blue",
-                  width: "95%",
-                  bottom: 10,
-                  left: 10,
-                  right: 10,
-                  borderRadius: 30,
-                  position: "absolute",
-                  height: 60,
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-                onPress={() => this.handleAdd()}
-              >
-                <Text>Salvar</Text>
-              </TouchableOpacity>
-            </View>
-          </Modal>
-        )}
+        {showButton && <NewPoint handleAdd={() => this.handleAdd()} />}
         {showDetails && (
           <Modal style={{ backgroundColor: "yellow", flex: 1 }}>
             {!place.natureza.includes("tubular") ? (
