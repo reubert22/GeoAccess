@@ -1,13 +1,12 @@
 //@flow
-import React from 'react';
 import {
   createStackNavigator,
   createAppContainer,
   createSwitchNavigator
-} from 'react-navigation';
+} from "react-navigation";
 
-import HomeScreen from './src/views/Home';
-import LoginScreen from './src/views/Login';
+import HomeScreen from "./src/views/Home";
+import LoginScreen from "./src/views/Login";
 
 const AppStack = createStackNavigator({
   Home: {
@@ -31,7 +30,7 @@ export default createAppContainer(
       App: AppStack
     },
     {
-      initialRouteName: 'Auth'
+      initialRouteName: "Auth"
     }
   )
 );

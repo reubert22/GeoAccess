@@ -13,24 +13,63 @@ import {
 
 class NewPoint extends PureComponent {
   state = {
-    option: "1",
+    option: "Poço tubular",
     uf: "MG",
-    municipio: "",
-    localizacao: "",
-    bacia: "",
-    subbacia: "",
-    data: "",
-    profundidade_inicial: "",
-    profundidade_final: "",
-    diametro_da_boca: "",
-    tipo_penetracao: "",
-    nivel_estatico: "",
-    nivel_dinamico: "",
-    vazao: "",
-    vazao_especifica: ""
+    municipio: "Contria",
+    localizacao: "XXX",
+    bacia: "XX",
+    subbacia: "XX-X",
+    data: "17/08/1111",
+    profundidade_inicial: "2",
+    profundidade_final: "2.5",
+    diametro_da_boca: "31.5",
+    tipo_penetracao: "Parcial",
+    nivel_estatico: "2",
+    nivel_dinamico: "2.3",
+    vazao: "5",
+    vazao_especifica: "5.2"
+  };
+
+  handleInformationSubmit = () => {
+    const {
+      option,
+      uf,
+      municipio,
+      localizacao,
+      bacia,
+      subbacia,
+      data,
+      profundidade_inicial,
+      profundidade_final,
+      diametro_da_boca,
+      tipo_penetracao,
+      nivel_estatico,
+      nivel_dinamico,
+      vazao,
+      vazao_especifica
+    } = this.state;
+
+    this.props.handleAdd({
+      option,
+      uf,
+      municipio,
+      localizacao,
+      bacia,
+      subbacia,
+      data,
+      profundidade_inicial,
+      profundidade_final,
+      diametro_da_boca,
+      tipo_penetracao,
+      nivel_estatico,
+      nivel_dinamico,
+      vazao,
+      vazao_especifica
+    });
   };
 
   render() {
+    console.log(this.state);
     return (
       <Modal
         style={{
@@ -73,8 +112,11 @@ class NewPoint extends PureComponent {
                 this.setState({ option: itemValue })
               }
             >
-              <Picker.Item label="Tubular" value="1" />
-              <Picker.Item label="Escavado" value="2" />
+              <Picker.Item label="Tubular" value="Poço tubular" />
+              <Picker.Item
+                label="Escavado"
+                value="Poço escavado(cacimba/cisterna)"
+              />
             </Picker>
 
             <View style={styles.divisor}>
@@ -224,7 +266,7 @@ class NewPoint extends PureComponent {
               alignItems: "center",
               justifyContent: "center"
             }}
-            onPress={this.props.handleAdd}
+            onPress={() => this.handleInformationSubmit()}
           >
             <Text style={{ fontSize: 20, color: "#fff" }}>Salvar</Text>
           </TouchableOpacity>
