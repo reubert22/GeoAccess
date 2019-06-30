@@ -1,12 +1,8 @@
 //@flow
-import {
-  createStackNavigator,
-  createAppContainer,
-  createSwitchNavigator
-} from "react-navigation";
+import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import HomeScreen from "./src/views/Home";
-import LoginScreen from "./src/views/Login";
+import HomeScreen from './src/views/HomeScreen/Home';
+import SplashScreen from './src/views/SplashScreen/Splash';
 
 const AppStack = createStackNavigator({
   Home: {
@@ -15,8 +11,8 @@ const AppStack = createStackNavigator({
 });
 
 const AuthStack = createStackNavigator({
-  Login: {
-    screen: LoginScreen,
+  Splash: {
+    screen: SplashScreen,
     navigationOptions: {
       header: null
     }
@@ -30,7 +26,7 @@ export default createAppContainer(
       App: AppStack
     },
     {
-      initialRouteName: "Auth"
+      initialRouteName: 'Auth'
     }
   )
 );

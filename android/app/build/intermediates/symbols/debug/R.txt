@@ -909,7 +909,6 @@ int layout select_dialog_multichoice_material 0x7f090033
 int layout select_dialog_singlechoice_material 0x7f090034
 int layout support_simple_spinner_dropdown_item 0x7f090035
 int mipmap ic_launcher 0x7f0a0000
-int mipmap ic_launcher_round 0x7f0a0001
 int raw amu_ballon_gx_prefix 0x7f0b0000
 int raw amu_basic_folder 0x7f0b0001
 int raw amu_basic_placemark 0x7f0b0002

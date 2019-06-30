@@ -4,7 +4,6 @@ import * as actions from "../actions/places";
 
 export const savePlaces = () => async () => {
   try {
-    console.log("save places");
     const firstAccess = await motailsStore.getItem("@first_access");
     if (firstAccess === null) {
       motailsStore.saveItem("@first_access", true);
@@ -17,13 +16,13 @@ export const savePlaces = () => async () => {
 
 export const getPlaces = () => async dispatch => {
   try {
-    console.log("get places");
     const places = await motailsStore.getItem("@places");
     dispatch(actions.successSavePlaces(JSON.parse(places)));
   } catch (error) {
     console.log(error);
   }
 };
+
 export const addNewPlace = data => async dispatch => {
   try {
     const places = await motailsStore.getItem("@places");

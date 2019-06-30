@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jun 13 01:18:21 BRT 2019
+#Sat Jun 15 15:56:30 BRT 2019
 5.base=/Users/Reubert/Documents/workspace/Personal/GeoAccess/android/app/build/intermediates/assets/debug
 42.base=/Users/Reubert/Documents/workspace/Personal/GeoAccess/android/app/build/intermediates/assets/debug
 22.path=fonts/FontAwesome.ttf
